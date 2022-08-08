@@ -53,8 +53,8 @@ source_it () {
 	fi
 }
 
-source_it "~/.bash_aliases"
-source_it "~/.aliases.sh"
+source_it "$HOME/.bash_aliases"
+source_it "$HOME/.aliases.sh"
 
 ## Terminal-specific shell prompt
 # ›» αΣϑ → ●
