@@ -12,7 +12,7 @@
 export IGNOREEOF=1
 
 ## bat as manpager
-#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ## History
 # When shell exist, append to the history file instead of overwriting it
@@ -47,33 +47,38 @@ append_to_path "$HOME/.local/dev/hossein-lap/scripts"
 append_to_path "$HOME/.cargo/bin"
 
 ## set bash_alias file
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
-if [ -f ~/.aliases.sh ]; then
-  . ~/.aliases.sh
-fi
+source_it () {
+	if [[ -f "$1" ]]; then
+		source "$1"
+	fi
+}
+
+source_it "~/.bash_aliases"
+source_it "~/.aliases.sh"
 
 ## Terminal-specific shell prompt
-#  α ›
+# ›» αΣϑ → ●
 case "$TERM" in
 linux)
 	PS1="[\u@\h \W]\[\033[01;00m\]\$ "
 	  ;;
-tmux*color|screen*256color*)
-	PS1="\[\033[01;34m\] ϑ \[\033[01;32m\]\W \[\033[00m\]"
+tmux*color|screen*color*)
+	PS1="\[\033[01;34m\] » \[\033[01;32m\]\W \[\033[00m\]"
 	  ;;
 st*color)
-	PS1="\[\033[01;32m\] Σ \[\033[01;35m\]\W \[\033[00m\]"
+	PS1="\[\033[01;32m\] % \[\033[01;35m\]\W \[\033[00m\]"
+	  ;;
+xterm*color)
+	PS1="\[\033[01;32m\] ➜ \[\033[01;35m\]\W \[\033[00m\]"
 	  ;;
 alacritty)
-	PS1="\[\033[01;32m\] → \[\033[01;35m\]\W \[\033[00m\]"
+	PS1="\[\033[01;32m\] ⇒ \[\033[01;35m\]\W \[\033[00m\]"
 	  ;;
 screen|termite)
 	PS1="[\u@\h:\W]\[\033[01;00m\]\$ "
 	  ;;
 *)
-	PS1="\[\033[01;32m\] » \[\033[01;35m\]\W \[\033[00m\]"
+	PS1="\[\033[01;32m\] \$ \[\033[01;35m\]\W \[\033[00m\]"
 	  ;;
 esac
 
@@ -84,7 +89,7 @@ alias s="source ~/.bashrc"
 ## bat colorscheme
 #"Solarized (dark)" "gruvbox-dark"
 #"Nord" "Dracula"
-export BAT_THEME="Dracula"
+export BAT_THEME="Solarized (light)"
 
 ## locale/timezone settings
 #export TZ="Tehran"
@@ -94,3 +99,9 @@ export LANG=en_US.UTF-8
 ## Other global variables
 export EDITOR=nvim
 
+export MDP_LIST_OPEN1='   '
+export MDP_LIST_OPEN2='   '
+export MDP_LIST_OPEN3='   '
+export MDP_LIST_HEAD1=' ● '
+export MDP_LIST_HEAD2=' ○ '
+export MDP_LIST_HEAD3=' • '

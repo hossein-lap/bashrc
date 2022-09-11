@@ -1,36 +1,33 @@
+#!/bin/bash
+#  _  _
+# | || | github: hossein-lap
+# | __ | email:  hosteam01@gmail.com
+# |_||_| matrix: hosaidenpwd:matrix.org
 #
-#  _  _ ___
-# | || | __|   H
-# | __ | _|    A
-# |_||_|___|   P
-#
-#
+
 #alias sudo="doas"
 
+alias c='clear'
+alias q="exit"
+alias x='startx'
+
 alias lf="lfub"
+alias mdp="mdp -f"
 
 alias exa="exa --sort extension --group-directories-first"
 alias tree='exa -T --icons'
 alias ts='exa -T --icons -L 1'
-
-alias tb="nc termbin.com 9999"
 alias l="exa"
 alias ll="l -l --icons"
 alias la="l -a --icons"
-
 alias cls="clear; ll"
 alias cl="clear; ls"
-
 alias ls='ls -X --color=auto --group-directories-first'
 
-alias c='clear'
-
-alias links="links -download-dir $HOME/Downloads/linksdl"
-
-alias aria2c='aria2c -x16 -c'
+alias tb="nc termbin.com 9999"
+alias links="links -download-dir $HOME/dl/"
+alias aria2c='aria2c -m 0 -x 16 -c'
 alias ddg='links https://duckduckgo.com'
-
-alias tmh='tmux new -s hos'
 
 alias pwgen='pwgen -s'
 alias psgen='pwgen'
@@ -39,29 +36,26 @@ alias pwgn='pwgen'
 
 alias t='tmux'
 alias sc='screen'
-alias x='startx'
 alias m='cmus'
-alias q="exit"
-alias em="emacsclient -c -a 'emacs'"
 
 alias poweroff='shutdown -h now'
+
 alias screenfetch='screenfetch -w'
 alias fetchmaster='fm6000 -r -c random'
+alias fm4000="fm4000 -de dwm -w -r -c random"
+alias neofetch='neofetch --ascii_distro arch_small'
+
 alias clear="clear && printf '\e[3J'"
 
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias grep='grep --color=auto'
 
+alias grep='grep --color=auto'
 alias lat='bat -n --style=plain --paging=always'
 alias bat='bat -P --style=plain'
 alias plow="glow -p"
-alias ed="ed -p ':'"
 alias lolcat='lolcat -S 7'
-
-alias neofetch='neofetch --ascii_distro void_small'
-alias ssrcp='date '\''+%H %M %S'\'' | figlet -f small | lolcat'
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -73,11 +67,8 @@ alias glg="git log --oneline --all --graph"
 alias gls="git log --stat --oneline --all --graph"
 alias gll="git log --stat --show-signature"
 
-alias msm="make && sudo make install"
-
-alias vi="vim -u ~/.vim/plain.vim"
-
-alias fm4000="fm4000 -de dwm -w -r -c random"
+alias vi="nvim -u ~/.vim/plain.vim"
+alias ed="ed -p ':'"
+alias em="emacsclient -c -a 'emacs'"
 
 alias gpg-agent-reload="gpg-connect-agent reloadagent /bye"
-
